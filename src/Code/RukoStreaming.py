@@ -1,5 +1,5 @@
 #RukoStremaing.py
-#Autores: Mario Vasquez & Yasmin Chan
+#Autores: Mario Vasquez & Yasmin Bautista
 #Proyecto Final Centro Multimedia
 #Licencia: MIT
 
