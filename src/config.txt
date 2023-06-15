@@ -1,0 +1,64 @@
+# Habilitar login sin contrasena
+Debemos teclear el siguiente comando en terminal
+
+sudo raspi-config
+
+Ir a la seccion de Boot / Auto Login en
+
+System Options -> Boot / Auto Login -> Desktop Autologin
+
+El sistema te solicitara reiniciar, puedes hacerlo en ese momento o al final como se indica en este archivo.
+
+# Deshabilitar mensaje de usb insertada
+Para eso debemos ir a la pestana volume management de las preferencias del File Manager y desactivar las opciones para dispositivo conectado.
+
+File Manager -> edit > preferences > volume management > Uncheck "Show available options for removable media when they are inserted "
+
+# Deshabilitar la barra de tareas
+Para no mostrar la barra de tareas debemos editar el archivo "autostart" de LXDE ubicado en
+
+/etc/xdg/lxsession/LXDE-pi/
+
+Se debe comentar la linea 
+
+@lxpanel --profile LXDE-pi
+
+Ej.
+
+# @lxpanel --profile LXDE-pi
+
+
+# Configuracion para correr el programa al prender la raspberry.
+Crear directorio
+
+mkdir /home/<usuario>/.config/autostart/
+
+Moverse a ese directorio
+
+cd /home/<usuario>/.config/autostart/
+
+Crear archivo Ruko.Desktop
+
+sudo nano Ruko.Desktop
+
+Agregar la siguiente informacion al archivo Ruko.Desktop
+
+[Desktop Entry]
+Name=Ruko Multimedia
+Type=Application
+Comment=Centro Multimedia
+Exec=/usr/bin/python3 <ruta del programa>/RukoStreaming.py
+
+Guardar archivo
+
+Ctrl + X
+
+Cambiar permisos de ejecucion del archivo Ruko.Desktop
+
+chmod +x /home/<usuario>/.config/autostart/Ruko.desktop
+
+
+# Reiniciar Raspberry
+Con esto ya estara configurada la raspberry para iniciar el programa al iniciar.
+
+sudo reboot

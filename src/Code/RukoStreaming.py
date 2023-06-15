@@ -15,13 +15,10 @@ import os
 import pyudev
 import time
 import subprocess
-
 import threading
 import sys
 import termios
 import tty
-
-usb = False
 
 # Obtener el directorio actual
 current_dir = os.getcwd()
@@ -43,7 +40,6 @@ def device_event_handler(action, device):
     global usb
     if action == 'add':
         # print("Dispositivo conectado:", device)
-        usb = True
         tituloLabel.grid(row=0,column=1, padx=10, pady=10, columnspan="5")
         tituloLabel.config(bg="gray7",fg="thistle1", justify="center", font="Roboto 20")
         usbMedia()
@@ -55,7 +51,6 @@ def device_event_handler(action, device):
         # detener_reproduccion_thread()
     elif action == 'remove':
         # print("Dispositivo desconectado:", device)
-        usb = False
         tituloLabel.grid_remove()
 
 # Crear un contexto pyudev
