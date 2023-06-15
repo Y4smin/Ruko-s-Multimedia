@@ -28,7 +28,7 @@ Ej.
 # @lxpanel --profile LXDE-pi
 
 
-# Configuracion para correr el programa al prender la raspberry.
+# Configuracion para correr el programa al prender la Raspberry
 Crear directorio
 
 mkdir /home/<usuario>/.config/autostart/
